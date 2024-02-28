@@ -46,6 +46,7 @@ dependencies:
   another_flushbar: ^1.12.30
   equatable: ^2.0.5
   formz: ^0.7.0
+  logger: ^2.0.2+1
 
 dev_dependencies:
   flutter_test:
