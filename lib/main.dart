@@ -1,9 +1,11 @@
 import 'package:bloc_clean_coding/view/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'bloc/app_bloc_observer.dart';
 import 'bloc/login_bloc/login_bloc.dart';
 
 void main() {
+  Bloc.observer =  AppBlocObserver();
   runApp(const MyApp());
 }
 
