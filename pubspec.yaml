@@ -45,6 +45,7 @@ dependencies:
   cached_network_image: ^3.3.1
   another_flushbar: ^1.12.30
   equatable: ^2.0.5
+  flutter_secure_storage: ^9.0.0
   formz: ^0.7.0
   logger: ^2.0.2+1
 

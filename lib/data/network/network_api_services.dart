@@ -5,7 +5,7 @@ import 'package:bloc_clean_coding/data/network/base_api_services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
-import '../app_exceptions.dart';
+import '../exception/app_exceptions.dart';
 
 class NetworkApiService implements BaseApiServices {
 
