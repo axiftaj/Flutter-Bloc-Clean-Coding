@@ -20,7 +20,7 @@ void main() {
   getIt.registerLazySingleton<AuthApiRepository>(() => AuthHttpApiRepository());
   getIt.registerLazySingleton<HomeApiRepository>(() => HomeHttpApiRepository());
 
-  Bloc.observer =  AppBlocObserver();
+//  Bloc.observer =  AppBlocObserver();
   runApp(const MyApp());
 }
 
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => LoginBloc()),
+        BlocProvider(create: (_) => LoginBloc(authApiRepository: getIt())),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import '../../bloc/login_bloc/login_bloc.dart';
+import '../../configs/routes/routes_name.dart';
 import 'widget/widgets.dart';
 
 
@@ -56,10 +57,18 @@ class _LoginViewState extends State<LoginView> {
             );
           }
           if (state.status.isInProgress) {
+            Navigator.pushNamed(context, RoutesName.home);
+            // ScaffoldMessenger.of(context)
+            //   ..hideCurrentSnackBar()
+            //   ..showSnackBar(
+            //     const SnackBar(content: Text('Submitting...')),
+            //   );
+          }
+          if (state.status.isFailure) {
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
               ..showSnackBar(
-                const SnackBar(content: Text('Submitting...')),
+                 SnackBar(content: Text(state.errorMessage.toString())),
               );
           }
         },

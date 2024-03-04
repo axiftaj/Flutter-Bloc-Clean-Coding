@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:bloc/bloc.dart';
 import 'package:formz/formz.dart';
+import '../../repository/auth_api/auth_api_repository.dart';
+import '../../services/session_manager/session_controller.dart';
 import '../../utils/formz/email.dart';
 import '../../utils/formz/password.dart';
 part 'login_events.dart';
@@ -10,7 +12,9 @@ part 'login_states.dart';
 
 
 class LoginBloc extends Bloc<LoginEvents, LoginStates> {
-  LoginBloc() : super(const LoginStates()) {
+
+  AuthApiRepository authApiRepository  ;
+  LoginBloc({required this.authApiRepository}) : super(const LoginStates()) {
     on<EmailChanged>(_onEmailChanged);
     on<PasswordChanged>(_onPasswordChanged);
     on<EmailUnfocused>(_onEmailUnfocused);
@@ -81,8 +85,21 @@ class LoginBloc extends Bloc<LoginEvents, LoginStates> {
     );
     if (state.isValid) {
       emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
-      await Future<void>.delayed(const Duration(seconds: 2));
-      emit(state.copyWith(status: FormzSubmissionStatus.success));
+      Map<String, String> data ={
+        'email' : email.value.toString(),
+        'password' : 'cityslicka',
+      };
+     await authApiRepository.loginApi(data).then((value) async {
+        if(value.error.isNotEmpty){
+          emit(state.copyWith(status: FormzSubmissionStatus.failure  , errorMessage: value.error));
+        }else {
+          await SessionController().saveUserInPreference(value);
+          await SessionController().getUserFromPreference();
+          emit(state.copyWith(status: FormzSubmissionStatus.success));
+        }
+      }).onError((error, stackTrace){
+        emit(state.copyWith(status: FormzSubmissionStatus.failure  , errorMessage: error.toString()));
+      });
     }
   }
 }

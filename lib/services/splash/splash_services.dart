@@ -10,7 +10,7 @@ class SplashServices {
 
     SessionController().getUserFromPreference().then((value)async{
 
-      if(SessionController().isLogin!){
+      if(SessionController().isLogin ?? false){
         Timer(const Duration(seconds: 2),
               () =>
           Navigator.pushNamedAndRemoveUntil(context, RoutesName.home, (route) => false),

@@ -12,7 +12,7 @@ part of 'user_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UserModel _$UserModelFromJson(Map<String, dynamic> json) {
   return _UserModel.fromJson(json);
@@ -21,6 +21,7 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserModel {
   String get token => throw _privateConstructorUsedError;
+  String get error => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,7 @@ abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
-  $Res call({String token});
+  $Res call({String token, String error});
 }
 
 /// @nodoc
@@ -50,11 +51,16 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   @override
   $Res call({
     Object? token = null,
+    Object? error = null,
   }) {
     return _then(_value.copyWith(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
+              as String,
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -68,7 +74,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
       __$$UserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String token});
+  $Res call({String token, String error});
 }
 
 /// @nodoc
@@ -83,11 +89,16 @@ class __$$UserModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? token = null,
+    Object? error = null,
   }) {
     return _then(_$UserModelImpl(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
+              as String,
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -96,7 +107,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserModelImpl implements _UserModel {
-  _$UserModelImpl({this.token = ''});
+  _$UserModelImpl({this.token = '', this.error = ''});
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserModelImplFromJson(json);
@@ -104,10 +115,13 @@ class _$UserModelImpl implements _UserModel {
   @override
   @JsonKey()
   final String token;
+  @override
+  @JsonKey()
+  final String error;
 
   @override
   String toString() {
-    return 'UserModel(token: $token)';
+    return 'UserModel(token: $token, error: $error)';
   }
 
   @override
@@ -115,12 +129,13 @@ class _$UserModelImpl implements _UserModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserModelImpl &&
-            (identical(other.token, token) || other.token == token));
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, token);
+  int get hashCode => Object.hash(runtimeType, token, error);
 
   @JsonKey(ignore: true)
   @override
@@ -137,13 +152,16 @@ class _$UserModelImpl implements _UserModel {
 }
 
 abstract class _UserModel implements UserModel {
-  factory _UserModel({final String token}) = _$UserModelImpl;
+  factory _UserModel({final String token, final String error}) =
+      _$UserModelImpl;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$UserModelImpl.fromJson;
 
   @override
   String get token;
+  @override
+  String get error;
   @override
   @JsonKey(ignore: true)
   _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>
