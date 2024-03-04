@@ -44,12 +44,13 @@ class _HomeViewState extends State<HomeView> {
               case Status.loading:
                 return const Center(child:  CircularProgressIndicator());
               case Status.error:
-                return Center(child: Text( state.moviesList.message.toString()));
+                return Center(child: Text(state.moviesList.message ?? ''));
               case Status.completed:
-                if(state.moviesList.data! == null){
+                if(state.moviesList.data == null){
                   return const Text('No Data Found');
                 }
                 final movieList = state.moviesList.data! ;
+
                 return ListView.builder(
                     itemCount: movieList.tvShow.length,
                     itemBuilder: (context, index){
