@@ -14,8 +14,8 @@ class SuccessDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Row(
-              children: const <Widget>[
+            const Row(
+              children:  <Widget>[
                 Icon(Icons.info),
                 Flexible(
                   child: Padding(

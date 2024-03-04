@@ -1,15 +1,14 @@
 part of 'movies_bloc.dart';
 
 
-
-
 class MoviesState extends Equatable {
 
-  MoviesState({
-     required this.moviesList  ,
+  final ApiResponse<MovieListModel> moviesList  ;
+
+  const MoviesState({
+      required this.moviesList ,
     }) ;
 
-   ApiResponse<MovieListModel> moviesList ;
 
    MoviesState copyWith({
      ApiResponse<MovieListModel>? moviesList,

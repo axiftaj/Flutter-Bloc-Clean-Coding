@@ -1,8 +1,3 @@
-
-
-
-
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'movie_list_model.freezed.dart';
 part 'movie_list_model.g.dart';
@@ -10,7 +5,6 @@ part 'movie_list_model.g.dart';
 @Freezed()
 class MovieListModel with _$MovieListModel {
 
-  @JsonSerializable(fieldRename: FieldRename.snake)
   factory MovieListModel({
     @Default('') String total,
     @Default(0) int page ,

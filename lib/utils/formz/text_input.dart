@@ -4,7 +4,7 @@ enum FirstTextInputValidationError { invalid }
 
 class TextInput extends FormzInput<String, FirstTextInputValidationError> {
   const TextInput.pure() : super.pure('');
-  const TextInput.dirty([String value = '']) : super.dirty(value);
+  const TextInput.dirty([super.value = '']) : super.dirty();
 
   static final RegExp _firstTextInputRegExp = RegExp(
     r'/^(?!\s*$).+/',

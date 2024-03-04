@@ -6,7 +6,6 @@ import 'package:bloc_clean_coding/data/response/response.dart';
 import 'package:equatable/equatable.dart';
 import '../../model/movie_list/movie_list_model.dart';
 import '../../repository/home_api/home_api_repository.dart';
-
 part 'movies_event.dart';
 part 'movies_state.dart';
 

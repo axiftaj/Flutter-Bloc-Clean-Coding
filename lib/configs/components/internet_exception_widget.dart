@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 class InterNetExceptionWidget extends StatefulWidget {
   final VoidCallback onPress;
-  const InterNetExceptionWidget({Key? key, required this.onPress})
-      : super(key: key);
+  const InterNetExceptionWidget({super.key, required this.onPress});
 
   @override
   State<InterNetExceptionWidget> createState() =>

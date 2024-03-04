@@ -1,7 +1,6 @@
 import 'package:bloc_clean_coding/bloc/movies_bloc/movies_bloc.dart';
 import 'package:bloc_clean_coding/data/response/response.dart';
 import 'package:bloc_clean_coding/data/response/status.dart';
-import 'package:bloc_clean_coding/view/home/widget/logout_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../configs/components/network_image_widget.dart';
@@ -9,7 +8,7 @@ import 'widget/widgets.dart';
 
 
 class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();

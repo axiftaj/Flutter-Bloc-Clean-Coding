@@ -9,15 +9,14 @@ class NetworkImageWidget extends StatelessWidget {
   final double width, height, borderRadius , iconSize;
   final BoxFit boxFit ;
   const NetworkImageWidget(
-      {Key? key,
+      {super.key,
         required this.imageUrl,
         this.width = 40,
         this.height = 40,
         this.borderRadius = 18 ,
       this.iconSize = 20 ,
         this.boxFit = BoxFit.cover
-      })
-      : super(key: key);
+      });
 
   @override
   Widget build(BuildContext context) {
