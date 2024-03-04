@@ -4,7 +4,7 @@ enum FirstMessageValidationError { invalid }
 
 class Message extends FormzInput<String, FirstMessageValidationError> {
   const Message.pure() : super.pure('');
-  const Message.dirty([String value = '']) : super.dirty(value);
+  const Message.dirty([super.value = '']) : super.dirty();
 
   static final RegExp _firstMessageRegExp = RegExp(
     r'/^(?!\s*$).+/',

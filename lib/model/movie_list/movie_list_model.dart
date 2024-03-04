@@ -1,3 +1,8 @@
+
+
+
+
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'movie_list_model.freezed.dart';
 part 'movie_list_model.g.dart';
@@ -12,7 +17,7 @@ class MovieListModel with _$MovieListModel {
     @Default(0) int pages,
     @Default([])  @JsonKey(name: 'tv_shows') List<TvShows> tvShow
 
-}) = _MovieListModel;
+  }) = _MovieListModel;
 
   factory MovieListModel.fromJson(Map<String, dynamic> json) => _$MovieListModelFromJson(json);
 }

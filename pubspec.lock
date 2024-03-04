@@ -361,7 +361,7 @@ packages:
     source: hosted
     version: "0.7.0"
   freezed:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: freezed
       sha256: "57247f692f35f068cae297549a46a9a097100685c6780fe67177503eea5ed4e5"

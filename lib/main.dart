@@ -1,3 +1,4 @@
+import 'package:bloc_clean_coding/bloc/movies_bloc/movies_bloc.dart';
 import 'package:bloc_clean_coding/repository/auth_api/auth_api_repository.dart';
 import 'package:bloc_clean_coding/repository/auth_api/auth_http_api_repository.dart';
 import 'package:bloc_clean_coding/repository/home_api/home_api_repository.dart';
@@ -33,6 +34,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => LoginBloc(authApiRepository: getIt())),
+        BlocProvider(create: (_) => MoviesBloc(homeRepository: getIt())),
+
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
