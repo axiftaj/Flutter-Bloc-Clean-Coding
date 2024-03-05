@@ -50,19 +50,15 @@ class _LoginViewState extends State<LoginView> {
       body: BlocListener<LoginBloc , LoginStates>(
         listener: (context, state){
           if (state.status.isSuccess) {
-            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-            showDialog<void>(
-              context: context,
-              builder: (_) => const SuccessDialog(),
-            );
+            Navigator.pushNamed(context, RoutesName.home);
+
           }
           if (state.status.isInProgress) {
-            Navigator.pushNamed(context, RoutesName.home);
-            // ScaffoldMessenger.of(context)
-            //   ..hideCurrentSnackBar()
-            //   ..showSnackBar(
-            //     const SnackBar(content: Text('Submitting...')),
-            //   );
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                const SnackBar(content: Text('Submitting...')),
+              );
           }
           if (state.status.isFailure) {
             ScaffoldMessenger.of(context)

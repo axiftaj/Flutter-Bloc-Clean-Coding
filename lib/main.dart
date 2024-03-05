@@ -16,9 +16,7 @@ GetIt getIt = GetIt.instance;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  getIt.registerLazySingleton<AuthApiRepository>(() => AuthHttpApiRepository());
-  getIt.registerLazySingleton<HomeApiRepository>(() => HomeHttpApiRepository());
-
+  servicesLocator();
 //  Bloc.observer =  AppBlocObserver();
   runApp(const MyApp());
 }
@@ -48,4 +46,10 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+
+void servicesLocator(){
+  getIt.registerLazySingleton<AuthApiRepository>(() => AuthHttpApiRepository());
+  getIt.registerLazySingleton<HomeApiRepository>(() => HomeHttpApiRepository());
 }

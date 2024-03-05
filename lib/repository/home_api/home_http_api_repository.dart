@@ -9,7 +9,7 @@ class HomeHttpApiRepository implements HomeApiRepository{
 
   @override
   Future<MovieListModel> fetchMoviesList()async{
-    final response = await _apiServices.getGetApiResponse(AppUrl.popularMoviesListEndPoint);
+    final response = await _apiServices.getApi(AppUrl.popularMoviesListEndPoint);
     return  MovieListModel.fromJson(response);
   }
 

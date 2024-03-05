@@ -10,7 +10,7 @@ import '../exception/app_exceptions.dart';
 class NetworkApiService implements BaseApiServices {
 
   @override
-  Future getGetApiResponse(String url) async {
+  Future getApi(String url) async {
     if (kDebugMode) {
       print(url);
     }
