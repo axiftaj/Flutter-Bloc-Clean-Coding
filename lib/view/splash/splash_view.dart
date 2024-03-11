@@ -25,7 +25,7 @@ class _SplashViewState extends State<SplashView> {
       body: Center(
         child: Text(
           AppLocalizations.of(context)!.splashScreen,
-          style: Theme.of(context).textTheme.headlineMedium,
+          style: Theme.of(context).textTheme.displayMedium,
         ),
       ),
     );

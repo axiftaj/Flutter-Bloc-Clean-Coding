@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'themes.dart';
 
 ThemeData darkTheme = ThemeData.dark().copyWith(
     appBarTheme: AppBarTheme(
-        toolbarTextStyle: ThemeData.light().textTheme.headline2!.copyWith(
+        toolbarTextStyle: ThemeData.light().textTheme.displayMedium!.copyWith(
             fontFamily: ThemeConfig.pangramRegular,
             color: Colors.white,
             fontWeight: FontWeight.w500),
@@ -14,32 +15,28 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
     textSelectionTheme: const TextSelectionThemeData(cursorColor: Colors.white),
     backgroundColor: const Color(0xff202934),
     textTheme: ThemeData.dark().textTheme.copyWith(
-          subtitle1: ThemeData.dark().textTheme.subtitle1!.copyWith(
-              fontFamily: ThemeConfig.pangramRegular, color: Colors.white),
-          subtitle2: ThemeData.dark().textTheme.subtitle2!.copyWith(
-              fontFamily: ThemeConfig.pangramRegular,
-              color: Colors.white.withOpacity(.5)),
-          headline1: const TextStyle(
+          titleMedium: GoogleFonts.roboto(color: Colors.white),
+          titleSmall: GoogleFonts.roboto(
+            color: Colors.white.withOpacity(.5),
+          ),
+          displayLarge: GoogleFonts.roboto(
             color: Colors.white,
           ),
-          headline2: const TextStyle(
-              fontFamily: ThemeConfig.pangramRegular,
-              color: Colors.white,
-              fontWeight: FontWeight.w400),
-
-      headline4: ThemeData.dark().textTheme.bodyText2!.copyWith(
-          fontFamily: ThemeConfig.pangramMedium ,
-          color: ThemeConfig.textColor6B698E ),
-
-          headline3: ThemeData.light()
-              .textTheme
-              .headline3!
-              .copyWith(color: Colors.white),
-        bodyText2: ThemeData.dark().textTheme.bodyText2!.copyWith(
-            fontFamily: ThemeConfig.pangramLight ,
-            color: ThemeConfig.textColorBCBFC2 ),
+          displayMedium: GoogleFonts.roboto(
+            color: Colors.white,
+            fontWeight: FontWeight.w400,
+          ),
+          headlineMedium: GoogleFonts.roboto(
+            color: ThemeConfig.textColor6B698E,
+          ),
+          displaySmall: GoogleFonts.roboto(
+            color: Colors.white,
+            fontWeight: FontWeight.w400,
+          ),
+          bodyMedium: GoogleFonts.roboto(
+            color: ThemeConfig.textColorBCBFC2,
+          ),
         ),
-
     radioTheme: RadioThemeData(
       fillColor: MaterialStateColor.resolveWith(
           (states) => Colors.white.withOpacity(.3)),

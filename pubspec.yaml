@@ -49,6 +49,7 @@ dependencies:
   formz: ^0.7.0
   logger: ^2.0.2+1
   freezed: ^2.4.7
+  google_fonts: ^6.2.0
   flutter_localization: ^0.2.0
   flutter_localizations:
     sdk: flutter
