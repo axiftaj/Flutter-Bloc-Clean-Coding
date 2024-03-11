@@ -9,6 +9,8 @@ import 'package:get_it/get_it.dart';
 import 'bloc/login_bloc/login_bloc.dart';
 import 'configs/routes/routes.dart';
 import 'configs/routes/routes_name.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // GetIt is a package used for service locator or to manage dependency injection
 GetIt getIt = GetIt.instance;
@@ -40,6 +42,16 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en'), // English
+          Locale('es'), // Spanish
+        ],
         initialRoute: RoutesName.splash,
         onGenerateRoute: Routes.generateRoute,
       ),

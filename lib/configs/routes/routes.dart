@@ -1,6 +1,5 @@
 import 'package:bloc_clean_coding/configs/routes/routes_name.dart';
 import 'package:flutter/material.dart';
-
 import '../../view/home/home_view.dart';
 import '../../view/login/login_view.dart';
 import '../../view/splash/splash_view.dart';

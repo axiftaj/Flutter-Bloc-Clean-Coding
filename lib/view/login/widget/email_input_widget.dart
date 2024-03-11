@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../bloc/login_bloc/login_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class EmailInput extends StatelessWidget {
@@ -17,7 +18,7 @@ class EmailInput extends StatelessWidget {
           focusNode: focusNode,
           decoration: InputDecoration(
             icon: const Icon(Icons.email),
-            labelText: 'Email',
+            labelText: AppLocalizations.of(context)!.email,
             helperText: 'A complete, valid email e.g. joe@gmail.com',
             errorText: state.email.displayError != null
                 ? 'Please ensure the email entered is valid'
