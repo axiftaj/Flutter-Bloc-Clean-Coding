@@ -11,6 +11,8 @@ import 'configs/routes/routes.dart';
 import 'configs/routes/routes_name.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'configs/themes/dark_theme.dart';
+import 'configs/themes/light_theme.dart';
 
 // GetIt is a package used for service locator or to manage dependency injection
 GetIt getIt = GetIt.instance;
@@ -37,11 +39,10 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
+        themeMode: ThemeMode.dark,
+        theme: lightTheme,
+        darkTheme: darkTheme,
 
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
         localizationsDelegates: const [
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
