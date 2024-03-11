@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../services/splash/splash_services.dart';
-
-
-
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -13,7 +10,6 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-
   SplashServices splashServices = SplashServices();
 
   @override
@@ -22,13 +18,16 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     splashServices.checkAuthentication(context);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Center(
-        child: Text('Splash screen', style: Theme.of(context).textTheme.headlineMedium,),
+      body: Center(
+        child: Text(
+          AppLocalizations.of(context)!.splashScreen,
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
       ),
     );
   }
 }
-

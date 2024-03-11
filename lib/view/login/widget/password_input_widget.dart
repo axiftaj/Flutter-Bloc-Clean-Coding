@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../bloc/login_bloc/login_bloc.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PasswordInput extends StatelessWidget {
   const PasswordInput({super.key, required this.focusNode});
@@ -18,12 +18,12 @@ class PasswordInput extends StatelessWidget {
           decoration: InputDecoration(
             icon: const Icon(Icons.lock),
             helperText:
-            '''Password should be at least 8 characters with at least one letter and number''',
+             AppLocalizations.of(context)!.passwordShouldbeatleast_characterswithatleastoneletterandnumber,
             helperMaxLines: 2,
-            labelText: 'Password',
+            labelText: AppLocalizations.of(context)!.password,
             errorMaxLines: 2,
             errorText: state.password.displayError != null
-                ? '''Password must be at least 8 characters and contain at least one letter and number'''
+                ? AppLocalizations.of(context)!.passwordRequirements
                 : null,
           ),
           obscureText: true,

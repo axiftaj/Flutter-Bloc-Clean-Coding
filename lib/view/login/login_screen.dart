@@ -4,6 +4,7 @@ import 'package:formz/formz.dart';
 import '../../bloc/login_bloc/login_bloc.dart';
 import '../../configs/routes/routes_name.dart';
 import 'widget/widgets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -56,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
               ..showSnackBar(
-                const SnackBar(content: Text('Submitting...')),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.submitting)),
               );
           }
           if (state.status.isFailure) {

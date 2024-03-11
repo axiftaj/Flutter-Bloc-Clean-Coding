@@ -1,3 +1,17 @@
 {
-"email": "Email"
+    "helloWorld": "Hello World",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "aCompleteValidEmailExamplejoegmailcom": "A complete, valid email e.g. joe@gmail.com",
+    "pleaseEnsureTheEmailEnteredIsValid": "Please ensure the email entered is valid",
+    "passwordShouldbeatleast_characterswithatleastoneletterandnumber": "Password should be at least 8 characters with at least one letter and number",
+    "passwordRequirements": "Password must be at least 8 characters and contain at least one letter and number",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "splashScreen": "Splash screen",
+    "popularShows": "Popular Shows",
+    "noDataFound": "No Data Found",
+    "noInternetConnection": "No Internet Connection",
+    "logout": "Logout"
 }

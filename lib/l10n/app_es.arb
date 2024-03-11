@@ -1,6 +1,17 @@
 {
-    "helloWorld": "¡Hola Mundo!" ,
-     "email": "Correo electrónico",
-     "password": "Contraseña",
-     "login": "Acceso"
+    "helloWorld": "¡Hola Mundo!",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "login": "Acceso",
+    "aCompleteValidEmailExamplejoegmailcom": "Un correo electrónico completo y válido, por ejemplo, joe@gmail.com",
+    "pleaseEnsureTheEmailEnteredIsValid": "Por favor, asegúrese de que el correo electrónico ingresado sea válido",
+    "passwordShouldbeatleast_characterswithatleastoneletterandnumber": "La contraseña debe tener al menos 8 caracteres con al menos una letra y un número",
+    "passwordRequirements": "La contraseña debe tener al menos 8 caracteres y contener al menos una letra y un número",
+    "submit": "Enviar",
+    "submitting": "Enviando...",
+    "splashScreen": "Pantalla de bienvenida",
+    "popularShows": "Shows Populares",
+    "noDataFound": "No se encontraron datos",
+    "noInternetConnection": "Sin conexión a internet",
+    "logout": "Cerrar sesión"
 }
