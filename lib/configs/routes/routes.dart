@@ -1,8 +1,7 @@
 import 'package:bloc_clean_coding/configs/routes/routes_name.dart';
 import 'package:flutter/material.dart';
-import '../../view/login/login_screen.dart';
-import '../../view/movies/movies_screen.dart';
-import '../../view/splash/splash_view.dart';
+import '../../view/views.dart';
+
 
 class Routes {
 
