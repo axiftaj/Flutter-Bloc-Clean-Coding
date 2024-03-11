@@ -1,5 +1,5 @@
 import '../../model/movie_list/movie_list_model.dart';
 
-abstract class HomeApiRepository {
+abstract class MoviesApiRepository {
   Future<MovieListModel> fetchMoviesList();
 }

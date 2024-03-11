@@ -7,14 +7,14 @@ import '../../configs/components/network_image_widget.dart';
 import 'widget/widgets.dart';
 
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class MoviesScreen extends StatefulWidget {
+  const MoviesScreen({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<MoviesScreen> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<MoviesScreen> {
 
 
   @override
@@ -43,7 +43,7 @@ class _HomeViewState extends State<HomeView> {
               case Status.loading:
                 return const Center(child:  CircularProgressIndicator());
               case Status.error:
-                return const HomeErrorWidget();
+                return const MoviesErrorWidget();
               case Status.completed:
                 if(state.moviesList.data == null){
                   return const Text('No Data Found');

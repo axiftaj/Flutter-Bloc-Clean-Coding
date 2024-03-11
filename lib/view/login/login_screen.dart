@@ -4,17 +4,16 @@ import 'package:formz/formz.dart';
 import '../../bloc/login_bloc/login_bloc.dart';
 import '../../configs/routes/routes_name.dart';
 import 'widget/widgets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart' ;
 
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _LoginScreenState extends State<LoginScreen> {
 
 
   final _emailFocusNode = FocusNode();

@@ -1,7 +1,7 @@
 import '../../model/movie_list/movie_list_model.dart';
-import 'home_api_repository.dart';
+import 'movies_api_repository.dart';
 
-class HomeMockApiRepository implements HomeApiRepository {
+class MoviesMockApiRepository implements MoviesApiRepository {
 
   @override
   Future<MovieListModel> fetchMoviesList()async{

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../configs/components/internet_exception_widget.dart';
 
-class HomeErrorWidget extends StatelessWidget {
-  const HomeErrorWidget({super.key});
+class MoviesErrorWidget extends StatelessWidget {
+  const MoviesErrorWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

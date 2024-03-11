@@ -1,8 +1,8 @@
 import 'package:bloc_clean_coding/bloc/movies_bloc/movies_bloc.dart';
 import 'package:bloc_clean_coding/repository/auth_api/auth_api_repository.dart';
 import 'package:bloc_clean_coding/repository/auth_api/auth_http_api_repository.dart';
-import 'package:bloc_clean_coding/repository/home_api/home_api_repository.dart';
-import 'package:bloc_clean_coding/repository/home_api/home_http_api_repository.dart';
+import 'package:bloc_clean_coding/repository/movies_api/movies_api_repository.dart';
+import 'package:bloc_clean_coding/repository/movies_api/movies_http_api_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => LoginBloc(authApiRepository: getIt())),
-        BlocProvider(create: (_) => MoviesBloc(homeRepository: getIt())),
+        BlocProvider(create: (_) => MoviesBloc(moviesApiRepository: getIt())),
 
       ],
       child: MaterialApp(
@@ -62,5 +62,5 @@ class MyApp extends StatelessWidget {
 
 void servicesLocator(){
   getIt.registerLazySingleton<AuthApiRepository>(() => AuthHttpApiRepository());
-  getIt.registerLazySingleton<HomeApiRepository>(() => HomeHttpApiRepository());
+  getIt.registerLazySingleton<MoviesApiRepository>(() => MoviesHttpApiRepository());
 }
