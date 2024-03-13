@@ -1,12 +1,14 @@
 import '../../model/movie_list/movie_list_model.dart';
 import 'movies_api_repository.dart';
 
+/// Mock implementation of [MoviesApiRepository] for simulating fetching movies list.
 class MoviesMockApiRepository implements MoviesApiRepository {
-
   @override
-  Future<MovieListModel> fetchMoviesList()async{
+  Future<MovieListModel> fetchMoviesList() async {
+    // Simulate a delay to mimic network latency
     await Future.delayed(const Duration(seconds: 2));
-    dynamic response = {
+    // Mock response data
+    dynamic responseData = {
       "total": "25369",
       "page": 1,
       "pages": 1269,
@@ -20,11 +22,11 @@ class MoviesMockApiRepository implements MoviesApiRepository {
           "country": "US",
           "network": "The CW",
           "status": "Ended",
-          "image_thumbnail_path": "https://static.episodate.com/images/tv-show/thumbnail/35624.jpg"
+          "image_thumbnail_path":
+              "https://static.episodate.com/images/tv-show/thumbnail/35624.jpg"
         }
       ]
     };
-    return  MovieListModel.fromJson(response);
+    return MovieListModel.fromJson(responseData);
   }
-
 }

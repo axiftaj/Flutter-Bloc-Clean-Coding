@@ -1,33 +1,38 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-part 'movie_list_model.freezed.dart';
-part 'movie_list_model.g.dart';
+import 'package:freezed_annotation/freezed_annotation.dart'; // Importing freezed_annotation package
 
-@Freezed()
+part 'movie_list_model.freezed.dart'; // Importing generated code for Freezed classes
+part 'movie_list_model.g.dart'; // Importing generated code for JSON serialization
+
+/// Freezed class representing a list of movies.
+@freezed
 class MovieListModel with _$MovieListModel {
-
+  /// Factory constructor for creating a [MovieListModel] instance.
   factory MovieListModel({
-    @Default('') String total,
-    @Default(0) int page ,
-    @Default(0) int pages,
-    @Default([])  @JsonKey(name: 'tv_shows') List<TvShows> tvShow
+    @Default('') String total, // Total number of movies
+    @Default(0) int page, // Current page number
+    @Default(0) int pages, // Total number of pages
+    @Default([]) @JsonKey(name: 'tv_shows') List<TvShows> tvShow, // List of TV shows
+  }) = _MovieListModel; // Constructor for the freezed class
 
-  }) = _MovieListModel;
-
-  factory MovieListModel.fromJson(Map<String, dynamic> json) => _$MovieListModelFromJson(json);
+  /// Factory constructor for creating a [MovieListModel] instance from JSON.
+  factory MovieListModel.fromJson(Map<String, dynamic> json) =>
+      _$MovieListModelFromJson(json); // JSON deserialization method
 }
 
-@Freezed()
+/// Freezed class representing a TV show.
+@freezed
 class TvShows with _$TvShows {
-
+  /// Factory constructor for creating a [TvShows] instance.
   factory TvShows({
-    @JsonKey(name: 'name') @Default('') String name,
-    @Default('') String permalink ,
-    @Default('') String endDate,
-    @Default('') String network,
-    @Default('') String imageThumbnailPath,
-    @Default('') String status,
+    @JsonKey(name: 'name') @Default('') String name, // Name of the TV show
+    @Default('') String permalink, // Permalink of the TV show
+    @Default('') String endDate, // End date of the TV show
+    @Default('') String network, // Network of the TV show
+    @Default('') String imageThumbnailPath, // Image thumbnail path of the TV show
+    @Default('') String status, // Status of the TV show
+  }) = _TvShows; // Constructor for the freezed class
 
-  }) = _TvShows;
-
-  factory TvShows.fromJson(Map<String, dynamic> json) => _$TvShowsFromJson(json);
+  /// Factory constructor for creating a [TvShows] instance from JSON.
+  factory TvShows.fromJson(Map<String, dynamic> json) =>
+      _$TvShowsFromJson(json); // JSON deserialization method
 }
