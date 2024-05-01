@@ -7,18 +7,20 @@ import '../../configs/components/network_image_widget.dart';
 import 'widget/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+/// A widget representing the screen displaying a list of movies.
 class MoviesScreen extends StatefulWidget {
-  const MoviesScreen({super.key});
+  const MoviesScreen({Key? key}) : super(key: key);
 
   @override
   State<MoviesScreen> createState() => _HomeViewState();
 }
 
+/// The state of the [MoviesScreen] widget.
 class _HomeViewState extends State<MoviesScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    // Dispatches the [PostFetched] event to trigger fetching movies data
     context.read<MoviesBloc>().add(PostFetched());
   }
 
@@ -29,7 +31,7 @@ class _HomeViewState extends State<MoviesScreen> {
         automaticallyImplyLeading: false,
         title: Text(AppLocalizations.of(context)!.popularShows),
         actions: const [
-          LogoutButtonWidget(),
+          LogoutButtonWidget(), // Widget for logout button
           SizedBox(
             width: 20,
           )
@@ -43,9 +45,10 @@ class _HomeViewState extends State<MoviesScreen> {
             case Status.loading:
               return const Center(child: CircularProgressIndicator());
             case Status.error:
-              return const MoviesErrorWidget();
+              return const MoviesErrorWidget(); // Widget for displaying error state
             case Status.completed:
               if (state.moviesList.data == null) {
+                // Widget for displaying no data found message
                 return Text(AppLocalizations.of(context)!.noDataFound);
               }
               final movieList = state.moviesList.data!;
@@ -59,10 +62,10 @@ class _HomeViewState extends State<MoviesScreen> {
                         leading: NetworkImageWidget(
                           borderRadius: 5,
                           imageUrl: tvShow.imageThumbnailPath.toString(),
-                        ),
-                        title: Text(tvShow.name.toString()),
-                        subtitle: Text(tvShow.network.toString()),
-                        trailing: Text(tvShow.status.toString()),
+                        ), // Widget for displaying network image
+                        title: Text(tvShow.name.toString()), // Title of the movie
+                        subtitle: Text(tvShow.network.toString()), // Network of the movie
+                        trailing: Text(tvShow.status.toString()), // Status of the movie
                       ),
                     );
                   });

@@ -1,26 +1,30 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart'; // Importing FlutterSecureStorage for secure local storage
 
-
-
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-
+/// A class for managing local storage using FlutterSecureStorage.
 class LocalStorage {
+  /// Instance of FlutterSecureStorage for secure local storage.
+  final storage = const FlutterSecureStorage();
 
-  // creating instance of FlutterSecureStorage
-  final storage =  const FlutterSecureStorage();
-
-
-  Future<bool> setValue(String keys, String values)async{
-    storage.write( key: keys , value:values);
-    return true ;
-  }
-
-  Future<dynamic> readValue(String keys)async{
-    return storage.read( key: keys , ) ;
-  }
-
-  Future<bool> clearValue(String key)async{
-    storage.delete(key: key);
+  /// Sets a key-value pair in the local storage.
+  ///
+  /// Returns a Future<bool> indicating the success of the operation.
+  Future<bool> setValue(String key, String value) async {
+    await storage.write(key: key, value: value);
     return true;
   }
 
+  /// Reads the value associated with the given key from the local storage.
+  ///
+  /// Returns a Future<dynamic> representing the value stored for the key.
+  Future<dynamic> readValue(String key) async {
+    return await storage.read(key: key);
+  }
+
+  /// Clears the value associated with the given key from the local storage.
+  ///
+  /// Returns a Future<bool> indicating the success of the operation.
+  Future<bool> clearValue(String key) async {
+    await storage.delete(key: key);
+    return true;
+  }
 }
