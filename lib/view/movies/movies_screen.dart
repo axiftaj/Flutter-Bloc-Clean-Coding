@@ -37,7 +37,7 @@ class _HomeViewState extends State<MoviesScreen> {
       ),
       body: BlocBuilder<MoviesBloc, MoviesState>(
         buildWhen: (previous, current) =>
-            previous.moviesList != current.moviesList,
+        previous.moviesList != current.moviesList,
         builder: (BuildContext context, state) {
           switch (state.moviesList.status) {
             case Status.loading:
