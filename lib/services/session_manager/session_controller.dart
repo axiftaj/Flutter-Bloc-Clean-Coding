@@ -1,5 +1,7 @@
 import 'dart:convert'; // Importing dart:convert for JSON encoding and decoding
+
 import 'package:flutter/material.dart'; // Importing Flutter material library
+
 import '../../model/user/user_model.dart'; // Importing the user model for user data
 import '../storage/local_storage.dart'; // Importing local storage for storing user data
 
@@ -12,10 +14,10 @@ class SessionController {
   static final SessionController _session = SessionController._internal();
 
   /// Flag indicating whether the user is logged in or not.
-  bool? isLogin;
+  static bool? isLogin;
 
   /// Model representing the user data.
-  UserModel user = UserModel();
+  static UserModel user = UserModel();
 
   /// Private constructor for creating the singleton instance of [SessionController].
   SessionController._internal() {
@@ -23,6 +25,11 @@ class SessionController {
     isLogin = false;
   }
 
+  //In Dart, a factory constructor is a special kind of constructor that can return an instance of the class,
+  // potentially a cached or pre-existing instance, instead of always creating a new one.
+  // It's defined using the factory keyword.
+  // This is useful for implementing patterns like singletons or when you want to control instance creat
+  //
   /// Factory constructor for accessing the singleton instance of [SessionController].
   factory SessionController() {
     return _session;
@@ -47,9 +54,9 @@ class SessionController {
       var isLogin = await sharedPreferenceClass.readValue('isLogin');
 
       if (userData.isNotEmpty) {
-        SessionController().user = UserModel.fromJson(jsonDecode(userData));
+        SessionController.user = UserModel.fromJson(jsonDecode(userData));
       }
-      SessionController().isLogin = isLogin == 'true' ? true : false;
+      SessionController.isLogin = isLogin == 'true' ? true : false;
     } catch (e) {
       debugPrint(e.toString());
     }

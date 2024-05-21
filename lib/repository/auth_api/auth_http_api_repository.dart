@@ -1,7 +1,7 @@
-import '../../configs/app_url.dart';
 import '../../data/network/base_api_services.dart';
 import '../../data/network/network_api_services.dart';
 import '../../model/user/user_model.dart';
+import '../../utils/app_url.dart';
 import 'auth_api_repository.dart';
 
 /// Implementation of [AuthApiRepository] for making HTTP requests to the authentication API.

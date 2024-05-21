@@ -1,7 +1,5 @@
 part of 'login_bloc.dart';
 
-
-
 abstract class LoginEvents extends Equatable {
   const LoginEvents();
 
@@ -18,10 +16,7 @@ class EmailChanged extends LoginEvents {
   List<Object> get props => [email];
 }
 
-class EmailUnfocused extends LoginEvents {}
-
 class PasswordChanged extends LoginEvents {
-
   const PasswordChanged({required this.password});
 
   final String password;
@@ -30,7 +25,4 @@ class PasswordChanged extends LoginEvents {
   List<Object> get props => [password];
 }
 
-class PasswordUnfocused extends LoginEvents {}
-
-class FormSubmitted extends LoginEvents {}
-
+class LoginApi extends LoginEvents {}

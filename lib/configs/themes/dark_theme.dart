@@ -5,15 +5,11 @@ import 'themes.dart';
 
 ThemeData darkTheme = ThemeData.dark().copyWith(
     appBarTheme: AppBarTheme(
-        toolbarTextStyle: ThemeData.light().textTheme.displayMedium!.copyWith(
-            fontFamily: ThemeConfig.pangramRegular,
-            color: Colors.white,
-            fontWeight: FontWeight.w500),
+        toolbarTextStyle: ThemeData.light().textTheme.displayMedium!.copyWith(fontFamily: ThemeConfig.pangramRegular, color: Colors.white, fontWeight: FontWeight.w500),
         iconTheme: const IconThemeData(
           color: Colors.white,
         )),
     textSelectionTheme: const TextSelectionThemeData(cursorColor: Colors.white),
-    backgroundColor: const Color(0xff202934),
     textTheme: ThemeData.dark().textTheme.copyWith(
           titleMedium: GoogleFonts.roboto(color: Colors.white),
           titleSmall: GoogleFonts.roboto(
@@ -38,8 +34,7 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
           ),
         ),
     radioTheme: RadioThemeData(
-      fillColor: MaterialStateColor.resolveWith(
-          (states) => Colors.white.withOpacity(.3)),
+      fillColor: MaterialStateColor.resolveWith((states) => Colors.white.withOpacity(.3)),
     ),
     colorScheme: const ColorScheme.dark().copyWith(
         secondary: const Color(0xff73777a),
@@ -51,7 +46,6 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
         background: const Color(0xff202934),
         primaryContainer: const Color(0xff2d3236),
         onPrimaryContainer: const Color(0xff5a5f62)),
-    progressIndicatorTheme: const ProgressIndicatorThemeData(
-        linearTrackColor: Colors.white, color: ThemeConfig.primaryColor),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(linearTrackColor: Colors.white, color: ThemeConfig.primaryColor),
     primaryColor: ThemeConfig.primaryColor,
     scaffoldBackgroundColor: ThemeConfig.darkBackColor);

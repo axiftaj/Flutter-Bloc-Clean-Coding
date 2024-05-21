@@ -6,12 +6,8 @@ import 'themes.dart';
 
 ThemeData lightTheme = ThemeData.light().copyWith(
   appBarTheme: AppBarTheme(
-      systemOverlayStyle:
-          const SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
-      toolbarTextStyle: ThemeData.light().textTheme.headline2!.copyWith(
-          fontFamily: ThemeConfig.pangramRegular,
-          color: Colors.black,
-          fontWeight: FontWeight.w500),
+      systemOverlayStyle: const SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
+      toolbarTextStyle: ThemeData.light().textTheme.headline2!.copyWith(fontFamily: ThemeConfig.pangramRegular, color: Colors.black, fontWeight: FontWeight.w500),
       iconTheme: const IconThemeData(
         color: Colors.black,
       )),
@@ -26,9 +22,7 @@ ThemeData lightTheme = ThemeData.light().copyWith(
       onPrimaryContainer: const Color(0xffd8d8da)),
   textSelectionTheme: const TextSelectionThemeData(cursorColor: Colors.black),
   scaffoldBackgroundColor: Colors.white,
-  backgroundColor: const Color(0xffF6F8F8),
-  progressIndicatorTheme: const ProgressIndicatorThemeData(
-      linearTrackColor: Color(0xffECEAEA), color: ThemeConfig.primaryColor),
+  progressIndicatorTheme: const ProgressIndicatorThemeData(linearTrackColor: Color(0xffECEAEA), color: ThemeConfig.primaryColor),
   primaryColor: ThemeConfig.primaryColor,
   radioTheme: RadioThemeData(
     fillColor: MaterialStateColor.resolveWith(
