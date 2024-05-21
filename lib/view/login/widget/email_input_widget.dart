@@ -1,9 +1,9 @@
+import 'package:bloc_clean_coding/utils/extensions/validations_exception.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Importing app localizations for translated text
 
 import '../../../bloc/login_bloc/login_bloc.dart';
-import '../../../utils/validations.dart';
 
 /// A widget representing the email input field.
 class EmailInput extends StatelessWidget {
@@ -31,7 +31,8 @@ class EmailInput extends StatelessWidget {
             if (value!.isEmpty) {
               return 'Enter email';
             }
-            if (!Validations.emailValidator(value)) {
+
+            if (value.emailValidator()) {
               return 'Email is not correct';
             }
             return null;
