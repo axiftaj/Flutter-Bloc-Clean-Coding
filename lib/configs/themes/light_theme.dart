@@ -5,10 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'themes.dart';
 
 ThemeData lightTheme = ThemeData.light().copyWith(
-  appBarTheme: AppBarTheme(
-      systemOverlayStyle: const SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
-      toolbarTextStyle: ThemeData.light().textTheme.headline2!.copyWith(fontFamily: ThemeConfig.pangramRegular, color: Colors.black, fontWeight: FontWeight.w500),
-      iconTheme: const IconThemeData(
+  appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
+      iconTheme: IconThemeData(
         color: Colors.black,
       )),
   colorScheme: ThemeData.light().colorScheme.copyWith(
