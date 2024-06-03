@@ -19,7 +19,7 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
             color: Colors.white,
           ),
           displayMedium: GoogleFonts.roboto(
-            color: Colors.red,
+            color: Colors.white,
             fontWeight: FontWeight.w400,
           ),
           headlineMedium: GoogleFonts.roboto(
