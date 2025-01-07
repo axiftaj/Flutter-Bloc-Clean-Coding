@@ -3,6 +3,7 @@ import 'auth_api_repository.dart';
 
 /// Mock implementation of [AuthApiRepository] for simulating login requests.
 class AuthMockApiRepository implements AuthApiRepository {
+
   @override
   Future<UserModel> loginApi(dynamic data) async {
     // Simulate a delay to mimic network latency
@@ -11,4 +12,8 @@ class AuthMockApiRepository implements AuthApiRepository {
     var responseData = {'token': 'a23z345xert'};
     return UserModel.fromJson(responseData);
   }
+
+
+
+
 }

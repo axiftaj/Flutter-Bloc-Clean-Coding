@@ -6,4 +6,5 @@ abstract class AuthApiRepository {
   ///
   /// Returns a [UserModel] representing the user data if the login is successful.
   Future<UserModel> loginApi(dynamic data);
+
 }
