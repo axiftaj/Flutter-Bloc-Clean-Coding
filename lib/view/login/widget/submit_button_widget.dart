@@ -5,7 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../bloc/login_bloc/login_bloc.dart';
 import '../../../configs/routes/routes_name.dart';
-import '../../../utils/enums.dart';
+import '../../../data/response/status.dart';
+
 
 /// A widget representing the submit button for the login form.
 class SubmitButton extends StatelessWidget {
@@ -15,22 +16,23 @@ class SubmitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginStates>(
-      listenWhen: (current, previous) => current.postApiStatus != previous.postApiStatus,
+      listenWhen: (current, previous) => current.loginApi.status != previous.loginApi.status,
       listener: (context, state) {
-        if (state.postApiStatus == PostApiStatus.error) {
-          context.flushBarErrorMessage(message: state.message.toString());
+
+        if (state.loginApi.status == Status.error) {
+          context.flushBarErrorMessage(message: state.loginApi.message.toString());
         }
 
-        if (state.postApiStatus == PostApiStatus.success) {
+        if (state.loginApi.status == Status.completed) {
           Navigator.pushNamedAndRemoveUntil(context, RoutesName.home, (route) => false);
         }
       },
       child: BlocBuilder<LoginBloc, LoginStates>(
-          buildWhen: (current, previous) => current.postApiStatus != previous.postApiStatus,
+          buildWhen: (current, previous) => current.loginApi != previous.loginApi,
           builder: (context, state) {
             return RoundButton(
                 title: 'Login',
-                loading: state.postApiStatus == PostApiStatus.loading ? true  :false ,
+                loading: state.loginApi.status == Status.loading ? true  :false ,
                 onPress: (){
               if (formKey.currentState.validate()) {
                 context.read<LoginBloc>().add(LoginApi());

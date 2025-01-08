@@ -1,18 +1,18 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:bloc_clean_coding/data/response/api_response.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../repository/auth_api/auth_api_repository.dart';
 import '../../services/session_manager/session_controller.dart';
-import '../../utils/enums.dart';
-
 part 'login_events.dart';
 part 'login_states.dart';
 
 class LoginBloc extends Bloc<LoginEvents, LoginStates> {
   AuthApiRepository authApiRepository;
-  LoginBloc({required this.authApiRepository}) : super(const LoginStates()) {
+
+  LoginBloc({required this.authApiRepository}) : super(LoginStates( loginApi: ApiResponse.completed(''))) {
     on<EmailChanged>(_onEmailChanged);
     on<PasswordChanged>(_onPasswordChanged);
     on<LoginApi>(_onFormSubmitted);
@@ -38,27 +38,23 @@ class LoginBloc extends Bloc<LoginEvents, LoginStates> {
     LoginApi event,
     Emitter<LoginStates> emit,
   ) async {
-    // Map<String, String> data = {
-    //   'email': 'eve.holt@reqres.in',
-    //   'password': 'cityslicka',
-    // };
     Map<String, String> data = {
       'email': state.email,
       'password': state.password,
     };
     emit(state.copyWith(
-      postApiStatus: PostApiStatus.loading,
+      loginApi: ApiResponse.loading(),
     ));
     await authApiRepository.loginApi(data).then((value) async {
       if (value.error.isNotEmpty) {
-        emit(state.copyWith(postApiStatus: PostApiStatus.error, message: value.error));
+        emit(state.copyWith(loginApi: ApiResponse.error(value.error)));
       } else {
         await SessionController().saveUserInPreference(value);
         await SessionController().getUserFromPreference();
-        emit(state.copyWith(postApiStatus: PostApiStatus.success));
+        emit(state.copyWith(loginApi: ApiResponse.completed('')));
       }
     }).onError((error, stackTrace) {
-      emit(state.copyWith(postApiStatus: PostApiStatus.error, message: error.toString()));
+      emit(state.copyWith(loginApi: ApiResponse.error(error.toString())));
     });
   }
 }

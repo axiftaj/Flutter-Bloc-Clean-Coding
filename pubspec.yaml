@@ -50,6 +50,7 @@ dependencies:
 
   google_fonts: ^6.2.0
   flutter_localization: ^0.3.0
+  mocktail: ^1.0.4
   flutter_localizations:
     sdk: flutter
   intl: any
@@ -64,8 +65,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
-
   build_runner: ^2.4.14
+  go_router: ^14.6.3
   json_serializable: ^6.9.2
 
 # For information on the generic Dart part of this file, see the

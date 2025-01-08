@@ -4,18 +4,24 @@ class LoginStates extends Equatable {
   const LoginStates({
     this.email = '',
     this.password = '',
-    this.postApiStatus = PostApiStatus.initial,
-    this.message = ''});
+   required this.loginApi ,
+  });
 
   final String email;
   final String password;
-  final String message;
-  final PostApiStatus postApiStatus;
+  final ApiResponse<String> loginApi;
 
-  LoginStates copyWith({String? email, String? password, String? message, PostApiStatus? postApiStatus}) {
-    return LoginStates(email: email ?? this.email, password: password ?? this.password, message: message ?? this.message, postApiStatus: postApiStatus ?? this.postApiStatus);
+  LoginStates copyWith({
+    String? email,
+    String? password,
+    ApiResponse<String>? loginApi
+  }) {
+    return LoginStates(
+        email: email ?? this.email,
+        password: password ?? this.password,
+        loginApi: loginApi ?? this.loginApi);
   }
 
   @override
-  List<Object> get props => [email, password, postApiStatus, message];
+  List<Object> get props => [email, password, loginApi];
 }
