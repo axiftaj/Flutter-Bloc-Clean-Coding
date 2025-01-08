@@ -20,7 +20,7 @@ void main(){
 
   late LoginBloc loginBloc;
   const email = 'foe@gmail.com';
-  const password = '1srw@gmail.com';
+  const password = 'password';
 
   late AuthApiRepository authApiRepository;
 
@@ -31,10 +31,7 @@ void main(){
 
   group('LoginBloc', (){
     test('initial state is LoginState', () {
-      final loginBloc = LoginBloc(
-        authApiRepository: authApiRepository,
-      );
-
+      final loginBloc = LoginBloc(authApiRepository: authApiRepository);
       expect(loginBloc.state, const LoginStates());
     });
 
