@@ -1,25 +1,21 @@
 // Importing necessary packages and files
-import 'package:bloc_clean_coding/repository/auth_api/auth_api_repository.dart';
-import 'package:bloc_clean_coding/repository/auth_api/auth_http_api_repository.dart';
-import 'package:bloc_clean_coding/repository/movies_api/movies_api_repository.dart';
-import 'package:bloc_clean_coding/repository/movies_api/movies_http_api_repository.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Localization support
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get_it/get_it.dart'; // Package for dependency injection
-
 import 'configs/routes/routes.dart'; // Custom routes
 import 'configs/routes/routes_name.dart'; // Route names
 import 'configs/themes/dark_theme.dart'; // Dark theme configuration
 import 'configs/themes/light_theme.dart';
 import 'dependency_injection/locator.dart'; // Light theme configuration
 
-
 ServiceLocator dependencyInjector = ServiceLocator();
 
 void main() {
+
   WidgetsFlutterBinding.ensureInitialized(); // Ensuring that Flutter bindings are initialized
   dependencyInjector.servicesLocator(); // Initializing service locator for dependency injection
+
   runApp(const MyApp()); // Running the application
 }
 
