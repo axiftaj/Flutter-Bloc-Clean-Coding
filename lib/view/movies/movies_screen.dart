@@ -53,6 +53,7 @@ class _HomeViewState extends State<MoviesScreen> {
         child: BlocBuilder<MoviesBloc, MoviesState>(
           buildWhen: (previous, current) => previous.moviesList != current.moviesList,
           builder: (BuildContext context, state) {
+
             switch (state.moviesList.status) {
               case Status.loading:
                 return const Center(child: CircularProgressIndicator());

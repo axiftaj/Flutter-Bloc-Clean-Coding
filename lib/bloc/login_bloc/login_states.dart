@@ -1,5 +1,6 @@
 part of 'login_bloc.dart';
 
+
 class LoginStates extends Equatable {
   const LoginStates({
     this.email = '',
@@ -10,6 +11,7 @@ class LoginStates extends Equatable {
   final String email;
   final String password;
   final ApiResponse<String> loginApi;
+
   LoginStates copyWith({
     String? email,
     String? password,

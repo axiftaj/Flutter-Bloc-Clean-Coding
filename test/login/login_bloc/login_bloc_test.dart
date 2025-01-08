@@ -74,14 +74,13 @@ void main(){
         authApiRepository: authApiRepository,
       ),
       act: (bloc) {
-
         bloc.add(const EmailChanged(email: email));
         bloc.add(const PasswordChanged(password: password));
         bloc.add(const LoginApi());
       },
       expect: () =>  const <LoginStates>[
          LoginStates(email: email),
-          LoginStates(email: email, password: password),
+        LoginStates(password: password),
          LoginStates(
             email: email,
             password: password,
