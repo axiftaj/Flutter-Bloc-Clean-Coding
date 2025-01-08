@@ -50,7 +50,7 @@ class SessionController {
   /// to be used across the app.
   Future<void> getUserFromPreference() async {
     try {
-      var userData = await sharedPreferenceClass.readValue('token');
+      String userData = await sharedPreferenceClass.readValue('token');
       var isLogin = await sharedPreferenceClass.readValue('isLogin');
 
       if (userData.isNotEmpty) {

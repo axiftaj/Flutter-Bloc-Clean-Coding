@@ -20,14 +20,18 @@ MovieListModel _$MovieListModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MovieListModel {
-  String get total => throw _privateConstructorUsedError;
-  int get page => throw _privateConstructorUsedError;
-  int get pages => throw _privateConstructorUsedError;
+  int get total => throw _privateConstructorUsedError; // Total number of movies
+  int get page => throw _privateConstructorUsedError; // Current page number
+  int get pages => throw _privateConstructorUsedError; // Total number of pages
   @JsonKey(name: 'tv_shows')
   List<TvShows> get tvShow => throw _privateConstructorUsedError;
 
+  /// Serializes this MovieListModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MovieListModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MovieListModelCopyWith<MovieListModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -39,7 +43,7 @@ abstract class $MovieListModelCopyWith<$Res> {
       _$MovieListModelCopyWithImpl<$Res, MovieListModel>;
   @useResult
   $Res call(
-      {String total,
+      {int total,
       int page,
       int pages,
       @JsonKey(name: 'tv_shows') List<TvShows> tvShow});
@@ -55,6 +59,8 @@ class _$MovieListModelCopyWithImpl<$Res, $Val extends MovieListModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MovieListModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -67,7 +73,7 @@ class _$MovieListModelCopyWithImpl<$Res, $Val extends MovieListModel>
       total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -93,7 +99,7 @@ abstract class _$$MovieListModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String total,
+      {int total,
       int page,
       int pages,
       @JsonKey(name: 'tv_shows') List<TvShows> tvShow});
@@ -107,6 +113,8 @@ class __$$MovieListModelImplCopyWithImpl<$Res>
       _$MovieListModelImpl _value, $Res Function(_$MovieListModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MovieListModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,7 +127,7 @@ class __$$MovieListModelImplCopyWithImpl<$Res>
       total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -137,11 +145,10 @@ class __$$MovieListModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.snake)
+@JsonSerializable()
 class _$MovieListModelImpl implements _MovieListModel {
   _$MovieListModelImpl(
-      {this.total = '',
+      {this.total = 0,
       this.page = 0,
       this.pages = 0,
       @JsonKey(name: 'tv_shows') final List<TvShows> tvShow = const []})
@@ -152,14 +159,18 @@ class _$MovieListModelImpl implements _MovieListModel {
 
   @override
   @JsonKey()
-  final String total;
+  final int total;
+// Total number of movies
   @override
   @JsonKey()
   final int page;
+// Current page number
   @override
   @JsonKey()
   final int pages;
+// Total number of pages
   final List<TvShows> _tvShow;
+// Total number of pages
   @override
   @JsonKey(name: 'tv_shows')
   List<TvShows> get tvShow {
@@ -184,12 +195,14 @@ class _$MovieListModelImpl implements _MovieListModel {
             const DeepCollectionEquality().equals(other._tvShow, _tvShow));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, total, page, pages,
       const DeepCollectionEquality().hash(_tvShow));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MovieListModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MovieListModelImplCopyWith<_$MovieListModelImpl> get copyWith =>
@@ -206,7 +219,7 @@ class _$MovieListModelImpl implements _MovieListModel {
 
 abstract class _MovieListModel implements MovieListModel {
   factory _MovieListModel(
-          {final String total,
+          {final int total,
           final int page,
           final int pages,
           @JsonKey(name: 'tv_shows') final List<TvShows> tvShow}) =
@@ -216,16 +229,19 @@ abstract class _MovieListModel implements MovieListModel {
       _$MovieListModelImpl.fromJson;
 
   @override
-  String get total;
+  int get total; // Total number of movies
   @override
-  int get page;
+  int get page; // Current page number
   @override
-  int get pages;
+  int get pages; // Total number of pages
   @override
   @JsonKey(name: 'tv_shows')
   List<TvShows> get tvShow;
+
+  /// Create a copy of MovieListModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MovieListModelImplCopyWith<_$MovieListModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -237,15 +253,23 @@ TvShows _$TvShowsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TvShows {
   @JsonKey(name: 'name')
-  String get name => throw _privateConstructorUsedError;
-  String get permalink => throw _privateConstructorUsedError;
-  String get endDate => throw _privateConstructorUsedError;
-  String get network => throw _privateConstructorUsedError;
-  String get imageThumbnailPath => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError; // Name of the TV show
+  String get permalink =>
+      throw _privateConstructorUsedError; // Permalink of the TV show
+  String get endDate =>
+      throw _privateConstructorUsedError; // End date of the TV show
+  String get network =>
+      throw _privateConstructorUsedError; // Network of the TV show
+  String get imageThumbnailPath =>
+      throw _privateConstructorUsedError; // Image thumbnail path of the TV show
   String get status => throw _privateConstructorUsedError;
 
+  /// Serializes this TvShows to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TvShows
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TvShowsCopyWith<TvShows> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -273,6 +297,8 @@ class _$TvShowsCopyWithImpl<$Res, $Val extends TvShows>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TvShows
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -336,6 +362,8 @@ class __$$TvShowsImplCopyWithImpl<$Res>
       _$TvShowsImpl _value, $Res Function(_$TvShowsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TvShows
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -392,18 +420,23 @@ class _$TvShowsImpl implements _TvShows {
   @override
   @JsonKey(name: 'name')
   final String name;
+// Name of the TV show
   @override
   @JsonKey()
   final String permalink;
+// Permalink of the TV show
   @override
   @JsonKey()
   final String endDate;
+// End date of the TV show
   @override
   @JsonKey()
   final String network;
+// Network of the TV show
   @override
   @JsonKey()
   final String imageThumbnailPath;
+// Image thumbnail path of the TV show
   @override
   @JsonKey()
   final String status;
@@ -428,12 +461,14 @@ class _$TvShowsImpl implements _TvShows {
             (identical(other.status, status) || other.status == status));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, permalink, endDate,
       network, imageThumbnailPath, status);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TvShows
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TvShowsImplCopyWith<_$TvShowsImpl> get copyWith =>
@@ -460,19 +495,22 @@ abstract class _TvShows implements TvShows {
 
   @override
   @JsonKey(name: 'name')
-  String get name;
+  String get name; // Name of the TV show
   @override
-  String get permalink;
+  String get permalink; // Permalink of the TV show
   @override
-  String get endDate;
+  String get endDate; // End date of the TV show
   @override
-  String get network;
+  String get network; // Network of the TV show
   @override
-  String get imageThumbnailPath;
+  String get imageThumbnailPath; // Image thumbnail path of the TV show
   @override
   String get status;
+
+  /// Create a copy of TvShows
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TvShowsImplCopyWith<_$TvShowsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

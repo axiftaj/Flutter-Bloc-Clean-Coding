@@ -5,16 +5,32 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Importing app l
 import '../../../bloc/login_bloc/login_bloc.dart';
 
 /// A widget representing the password input field.
-class PasswordInput extends StatelessWidget {
-  const PasswordInput({Key? key, required this.focusNode}) : super(key: key);
 
-  final FocusNode focusNode;
+class PasswordInputWidget extends StatefulWidget {
+  const PasswordInputWidget({super.key});
 
+  @override
+  State<PasswordInputWidget> createState() => _PasswordInputWidgetState();
+}
+
+class _PasswordInputWidgetState extends State<PasswordInputWidget> {
+
+  final FocusNode focusNode = FocusNode();
+  final TextEditingController  passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    focusNode.dispose();
+    passwordController.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginBloc, LoginStates>(
       builder: (context, state) {
         return TextFormField(
+          controller: passwordController,
           focusNode: focusNode, // Setting focus node
           decoration: InputDecoration(
             icon: const Icon(Icons.lock), // Icon for password input field
@@ -43,3 +59,4 @@ class PasswordInput extends StatelessWidget {
     );
   }
 }
+

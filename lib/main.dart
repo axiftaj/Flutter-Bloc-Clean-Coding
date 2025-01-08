@@ -11,14 +11,15 @@ import 'package:get_it/get_it.dart'; // Package for dependency injection
 import 'configs/routes/routes.dart'; // Custom routes
 import 'configs/routes/routes_name.dart'; // Route names
 import 'configs/themes/dark_theme.dart'; // Dark theme configuration
-import 'configs/themes/light_theme.dart'; // Light theme configuration
+import 'configs/themes/light_theme.dart';
+import 'dependency_injection/locator.dart'; // Light theme configuration
 
-// GetIt is a package used for service locator or to manage dependency injection
-GetIt getIt = GetIt.instance;
+
+ServiceLocator dependencyInjector = ServiceLocator();
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); // Ensuring that Flutter bindings are initialized
-  servicesLocator(); // Initializing service locator for dependency injection
+  dependencyInjector.servicesLocator(); // Initializing service locator for dependency injection
   runApp(const MyApp()); // Running the application
 }
 
@@ -50,8 +51,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Function for initializing service locator
-void servicesLocator() {
-  getIt.registerLazySingleton<AuthApiRepository>(() => AuthHttpApiRepository()); // Registering AuthHttpApiRepository as a lazy singleton for AuthApiRepository
-  getIt.registerLazySingleton<MoviesApiRepository>(() => MoviesHttpApiRepository()); // Registering MoviesHttpApiRepository as a lazy singleton for MoviesApiRepository
-}
+

@@ -6,16 +6,35 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Importing app l
 import '../../../bloc/login_bloc/login_bloc.dart';
 
 /// A widget representing the email input field.
-class EmailInput extends StatelessWidget {
-  const EmailInput({Key? key, required this.focusNode}) : super(key: key);
 
-  final FocusNode focusNode;
+
+class EmailInputWidget extends StatefulWidget {
+  const EmailInputWidget({super.key});
+
+  @override
+  State<EmailInputWidget> createState() => _EmailInputWidgetState();
+}
+
+class _EmailInputWidgetState extends State<EmailInputWidget> {
+
+  final FocusNode focusNode = FocusNode();
+  final TextEditingController  emailController = TextEditingController();
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    final bloc = context.read<LoginBloc>();
+  }
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginBloc, LoginStates>(
       builder: (context, state) {
         return TextFormField(
+          controller: emailController,
           focusNode: focusNode, // Setting focus node
           decoration: InputDecoration(
             icon: const Icon(Icons.email), // Icon for email input field
@@ -32,7 +51,7 @@ class EmailInput extends StatelessWidget {
               return 'Enter email';
             }
 
-            if (value.emailValidator()) {
+            if (!value.emailValidator()) {
               return 'Email is not correct';
             }
             return null;
@@ -43,3 +62,4 @@ class EmailInput extends StatelessWidget {
     );
   }
 }
+

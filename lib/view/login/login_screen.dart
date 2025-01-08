@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../bloc/login_bloc/login_bloc.dart';
-import '../../main.dart';
+
+
+import '../../dependency_injection/locator.dart';
 import 'widget/widgets.dart'; // Importing custom widget components
 
 /// A widget representing the login screen of the application.
@@ -15,10 +16,8 @@ class LoginScreen extends StatefulWidget {
 
 /// The state of the [LoginScreen] widget.
 class _LoginScreenState extends State<LoginScreen> {
-  late LoginBloc _loginBlocs;
 
-  final _emailFocusNode = FocusNode();
-  final _passwordFocusNode = FocusNode();
+  late LoginBloc _loginBlocs;
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -30,8 +29,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void dispose() {
-    _emailFocusNode.dispose();
-    _passwordFocusNode.dispose();
     _loginBlocs.close();
     super.dispose();
   }
@@ -49,8 +46,9 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                EmailInput(focusNode: _emailFocusNode), // Widget for email input field
-                PasswordInput(focusNode: _passwordFocusNode), // Widget for password input field
+                const EmailInputWidget(), // Widget for email input field
+                const PasswordInputWidget(),
+                const SizedBox(height: 20,),// Widget for password input field
                 SubmitButton(
                   formKey: _formKey,
                 ), // Widget for submit button

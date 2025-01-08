@@ -8,7 +8,7 @@ part 'movie_list_model.g.dart'; // Importing generated code for JSON serializati
 class MovieListModel with _$MovieListModel {
   /// Factory constructor for creating a [MovieListModel] instance.
   factory MovieListModel({
-    @Default('') String total, // Total number of movies
+    @Default(0) int total, // Total number of movies
     @Default(0) int page, // Current page number
     @Default(0) int pages, // Total number of pages
     @Default([]) @JsonKey(name: 'tv_shows') List<TvShows> tvShow, // List of TV shows

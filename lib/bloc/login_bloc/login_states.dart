@@ -1,7 +1,11 @@
 part of 'login_bloc.dart';
 
 class LoginStates extends Equatable {
-  const LoginStates({this.email = '', this.password = '', this.postApiStatus = PostApiStatus.initial, this.message = ''});
+  const LoginStates({
+    this.email = '',
+    this.password = '',
+    this.postApiStatus = PostApiStatus.initial,
+    this.message = ''});
 
   final String email;
   final String password;

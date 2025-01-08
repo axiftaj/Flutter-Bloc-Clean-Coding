@@ -5,6 +5,7 @@ import 'package:bloc_clean_coding/data/response/api_response.dart';
 import 'package:bloc_clean_coding/data/response/response.dart';
 import 'package:bloc_clean_coding/repository/movies_api/movies_api_repository.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 
 import '../../model/movie_list/movie_list_model.dart';
 
@@ -23,6 +24,11 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
         moviesList: ApiResponse.completed(response),
       ));
     }).onError((error, stackTrace) {
+      if (kDebugMode) {
+        print(stackTrace);
+        print(error);
+      }
+
       emit(state.copyWith(
         moviesList: ApiResponse.error(error.toString()),
       ));

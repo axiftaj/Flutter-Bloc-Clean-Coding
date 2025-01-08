@@ -8,9 +8,9 @@ part of 'movie_list_model.dart';
 
 _$MovieListModelImpl _$$MovieListModelImplFromJson(Map<String, dynamic> json) =>
     _$MovieListModelImpl(
-      total: json['total'] as String? ?? '',
-      page: json['page'] as int? ?? 0,
-      pages: json['pages'] as int? ?? 0,
+      total: (json['total'] as num?)?.toInt() ?? 0,
+      page: (json['page'] as num?)?.toInt() ?? 0,
+      pages: (json['pages'] as num?)?.toInt() ?? 0,
       tvShow: (json['tv_shows'] as List<dynamic>?)
               ?.map((e) => TvShows.fromJson(e as Map<String, dynamic>))
               .toList() ??

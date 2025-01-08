@@ -85,7 +85,7 @@ class NetworkApiService implements BaseApiServices {
       case 404:
         throw UnauthorisedException(response.body.toString());
       default:
-        throw FetchDataException('Error occured while communicating with server');
+        throw FetchDataException('Error occurred while communicating with server');
     }
   }
 }

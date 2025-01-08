@@ -4,9 +4,9 @@ import 'package:bloc_clean_coding/data/response/status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import '../../configs/components/network_image_widget.dart';
-import '../../main.dart';
+import '../../dependency_injection/locator.dart';
+
 import 'widget/widgets.dart';
 
 /// A widget representing the screen displaying a list of movies.
