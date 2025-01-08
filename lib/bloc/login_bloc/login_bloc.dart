@@ -12,7 +12,7 @@ part 'login_states.dart';
 class LoginBloc extends Bloc<LoginEvents, LoginStates> {
   AuthApiRepository authApiRepository;
 
-  LoginBloc({required this.authApiRepository}) : super(LoginStates( loginApi: ApiResponse.completed(''))) {
+  LoginBloc({required this.authApiRepository}) : super(const LoginStates()) {
     on<EmailChanged>(_onEmailChanged);
     on<PasswordChanged>(_onPasswordChanged);
     on<LoginApi>(_onFormSubmitted);

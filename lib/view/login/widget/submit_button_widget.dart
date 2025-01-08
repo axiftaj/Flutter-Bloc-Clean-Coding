@@ -16,14 +16,14 @@ class SubmitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginStates>(
-      listenWhen: (current, previous) => current.loginApi.status != previous.loginApi.status,
+      listenWhen: (current, previous) => current.loginApi!.status != previous.loginApi!.status,
       listener: (context, state) {
 
-        if (state.loginApi.status == Status.error) {
-          context.flushBarErrorMessage(message: state.loginApi.message.toString());
+        if (state.loginApi!.status == Status.error) {
+          context.flushBarErrorMessage(message: state.loginApi!.message.toString());
         }
 
-        if (state.loginApi.status == Status.completed) {
+        if (state.loginApi!.status == Status.completed) {
           Navigator.pushNamedAndRemoveUntil(context, RoutesName.home, (route) => false);
         }
       },
@@ -32,7 +32,7 @@ class SubmitButton extends StatelessWidget {
           builder: (context, state) {
             return RoundButton(
                 title: 'Login',
-                loading: state.loginApi.status == Status.loading ? true  :false ,
+                loading: state.loginApi!.status == Status.loading ? true  :false ,
                 onPress: (){
               if (formKey.currentState.validate()) {
                 context.read<LoginBloc>().add(LoginApi());

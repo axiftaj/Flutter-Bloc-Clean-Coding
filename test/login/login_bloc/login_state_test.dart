@@ -7,40 +7,53 @@ import 'package:flutter_test/flutter_test.dart';
 
 
 void main() {
-  const email = 'axiftaj@gmail.com';
-  const password = '12@kl4Abc*';
-  final apiStatus = ApiResponse.completed('');
 
+  const email = 'test@khan.com' ;
+  const password = '123456@12A' ;
 
-  group('LoginState', () {
+  group('LoginStates', () {
+    test('has default values', () {
+      const loginState = LoginStates();
+      expect(loginState.email, '');
+      expect(loginState.password, '');
+      expect(loginState.loginApi, null);
+    });
+
     test('supports value comparisons', () {
-      expect(LoginStates(loginApi: apiStatus), LoginStates(loginApi: apiStatus));
+      const state1 = LoginStates(email: email, password: password);
+      const state2 = LoginStates(email: email, password: password);
+
+      expect(state1, equals(state2));
     });
 
-    test('returns same object when no properties are passed', () {
-      expect(LoginStates(loginApi: apiStatus).copyWith(), LoginStates(loginApi: apiStatus));
+    test('copyWith creates a new instance with updated values', () {
+      final loginState = LoginStates(email: email, password: password );
+      final updatedState = loginState.copyWith(email: 'new_email', password: 'new_password');
+
+      expect(updatedState.email, 'new_email');
+      expect(updatedState.password, 'new_password');
     });
 
+    test('copyWith retains old values when no new values are provided', () {
+      const loginState = LoginStates(email: 'test@khan.com', password: '123456');
+      final updatedState = loginState.copyWith();
 
-    test('returns object with updated username when username is passed', () {
-      expect(
-        LoginStates(loginApi: apiStatus).copyWith(email: email),
-        LoginStates(email: email, loginApi: apiStatus),
-      );
+      expect(updatedState.email, loginState.email);
+      expect(updatedState.password, loginState.password);
+      expect(updatedState.loginApi, loginState.loginApi);
     });
 
-    test('returns object with updated api response is updated', () {
-      expect(
-        LoginStates(loginApi: apiStatus).copyWith(loginApi: apiStatus),
-        LoginStates(loginApi: apiStatus),
-      );
-    });
+    test('loginApi supports copyWith updates', () {
 
-    test('returns object with updated password when password is passed', () {
-      expect(
-        LoginStates(loginApi: apiStatus).copyWith(password: password),
-        LoginStates(password: password, loginApi: apiStatus),
-      );
+      var loginApiResponse = ApiResponse.completed('');
+      var loginState = LoginStates(loginApi: loginApiResponse);
+      final updatedApiResponse =ApiResponse.completed('Api Changes');
+      final updatedState = loginState.copyWith(loginApi: updatedApiResponse);
+
+      expect(updatedState.loginApi, updatedApiResponse);
+
     });
   });
+
 }
+
