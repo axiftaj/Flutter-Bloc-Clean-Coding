@@ -42,16 +42,15 @@ class LoginBloc extends Bloc<LoginEvents, LoginStates> {
       'email': state.email,
       'password': state.password,
     };
-    emit(state.copyWith(
-      loginApi: ApiResponse.loading(),
-    ));
+    emit(state.copyWith(loginApi: const ApiResponse.loading()));
+
     await authApiRepository.loginApi(data).then((value) async {
       if (value.error.isNotEmpty) {
         emit(state.copyWith(loginApi: ApiResponse.error(value.error)));
       } else {
         await SessionController().saveUserInPreference(value);
         await SessionController().getUserFromPreference();
-        emit(state.copyWith(loginApi: ApiResponse.completed('')));
+        emit(state.copyWith(loginApi: const ApiResponse.completed('')));
       }
     }).onError((error, stackTrace) {
       emit(state.copyWith(loginApi: ApiResponse.error(error.toString())));

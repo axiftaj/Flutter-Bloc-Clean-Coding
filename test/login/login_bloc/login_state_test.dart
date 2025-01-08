@@ -14,9 +14,10 @@ void main() {
   group('LoginStates', () {
     test('has default values', () {
       const loginState = LoginStates();
+
       expect(loginState.email, '');
       expect(loginState.password, '');
-      expect(loginState.loginApi, null);
+      expect(loginState.loginApi, ApiResponse.completed(''));
     });
 
     test('supports value comparisons', () {

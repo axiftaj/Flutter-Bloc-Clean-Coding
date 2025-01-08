@@ -23,11 +23,10 @@ void main(){
   const password = '1srw@gmail.com';
 
   late AuthApiRepository authApiRepository;
-  late MockSessionController mockSessionController;
+
   setUp(() {
     authApiRepository = MockAuthenticationRepository();
     loginBloc =  LoginBloc(authApiRepository: authApiRepository);
-    mockSessionController = MockSessionController();
   });
 
   group('LoginBloc', (){
@@ -35,6 +34,7 @@ void main(){
       final loginBloc = LoginBloc(
         authApiRepository: authApiRepository,
       );
+
       expect(loginBloc.state, const LoginStates());
     });
 
@@ -44,16 +44,17 @@ void main(){
       build: () => loginBloc,
       act: (bloc) => bloc.add(const EmailChanged(email: email)),
       expect: () => [
-        const LoginStates(email: password),
+        const LoginStates(email: email),
       ],
     );
+
 
     blocTest<LoginBloc, LoginStates>(
       'emits updated password when PasswordChanged event is added',
       build: () => loginBloc,
       act: (bloc) => bloc.add(const PasswordChanged(password: password)),
       expect: () => [
-        const PasswordChanged(password: password),
+        const LoginStates(password: password),
       ],
     );
 
@@ -78,9 +79,9 @@ void main(){
         bloc.add(const PasswordChanged(password: password));
         bloc.add(const LoginApi());
       },
-      expect: () =>  <LoginStates>[
-        const LoginStates(email: email),
-        const  LoginStates(email: email, password: password),
+      expect: () =>  const <LoginStates>[
+         LoginStates(email: email),
+          LoginStates(email: email, password: password),
          LoginStates(
             email: email,
             password: password,
