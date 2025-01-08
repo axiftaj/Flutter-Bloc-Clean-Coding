@@ -23,5 +23,5 @@ class LoginStates extends Equatable {
   }
 
   @override
-  List<Object> get props => [email, password, loginApi!];
+  List<Object?> get props => [email, password, loginApi];
 }
