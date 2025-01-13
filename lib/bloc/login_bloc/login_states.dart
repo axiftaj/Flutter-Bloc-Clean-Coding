@@ -20,7 +20,8 @@ class LoginStates extends Equatable {
     return LoginStates(
         email: email ?? this.email,
         password: password ?? this.password,
-        loginApi: loginApi ?? this.loginApi);
+        loginApi: loginApi ?? this.loginApi
+    );
   }
 
   @override

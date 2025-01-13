@@ -28,6 +28,7 @@ class _PasswordInputWidgetState extends State<PasswordInputWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginBloc, LoginStates>(
+      buildWhen: (current, previous) => false,
       builder: (context, state) {
         return TextFormField(
           controller: passwordController,

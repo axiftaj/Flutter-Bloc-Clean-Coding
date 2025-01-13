@@ -64,8 +64,6 @@ void main(){
         };
         when(() => authApiRepository.loginApi(data))
             .thenAnswer((_) async => UserModel(token: '1jxls2'));
-
-
       },
       build: () => LoginBloc(
         authApiRepository: authApiRepository,

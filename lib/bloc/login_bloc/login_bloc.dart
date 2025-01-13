@@ -50,7 +50,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginStates> {
       } else {
         await SessionController().saveUserInPreference(value);
         await SessionController().getUserFromPreference();
-        emit(state.copyWith(loginApi: const ApiResponse.completed('')));
+        emit(state.copyWith(loginApi: const ApiResponse.completed('lOGIN')));
       }
     }).onError((error, stackTrace) {
       emit(state.copyWith(loginApi: ApiResponse.error(error.toString())));

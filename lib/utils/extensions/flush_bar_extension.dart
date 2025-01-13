@@ -14,7 +14,7 @@ extension FlushBarErrorMessage on BuildContext {
           duration: const Duration(seconds: 3),
           borderRadius: BorderRadius.circular(8),
           flushbarPosition: FlushbarPosition.TOP,
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.green,
           reverseAnimationCurve: Curves.easeInOut,
           positionOffset: 20,
           icon: const Icon(

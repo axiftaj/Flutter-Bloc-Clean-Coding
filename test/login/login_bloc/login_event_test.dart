@@ -3,7 +3,7 @@ import 'package:bloc_clean_coding/bloc/login_bloc/login_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  String email = 'test@khan.com';
+  String email = 'test@gmail.com';
   String password = 'mock-password';
   group('LoginEvent', () {
     group('EmailChange', () {

@@ -2,7 +2,6 @@ part of 'login_bloc.dart';
 
 sealed class LoginEvents extends Equatable {
   const LoginEvents();
-
   @override
   List<Object> get props => [];
 }

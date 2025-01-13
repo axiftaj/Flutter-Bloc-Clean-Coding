@@ -22,16 +22,9 @@ class _EmailInputWidgetState extends State<EmailInputWidget> {
 
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    final bloc = context.read<LoginBloc>();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginBloc, LoginStates>(
+      buildWhen: (current, previous) => false,
       builder: (context, state) {
         return TextFormField(
           controller: emailController,

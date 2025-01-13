@@ -1,8 +1,6 @@
 import 'package:bloc_clean_coding/data/response/status.dart';
 
 
-
-
 class ApiResponse<T> {
   final Status status;
   final T? data;
